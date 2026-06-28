@@ -205,4 +205,4 @@ MIT License — feel free to use, modify, and distribute.
 
 ---
 
-<p align="center">Built with ❤️ by <a href="https://github.com/Pushpak2809">Pushpak</a></p>
+<p align="center">Built with ❤️ by <a href="https://github.com/Pushpak2809">Pushpak</a></p> and Team 
