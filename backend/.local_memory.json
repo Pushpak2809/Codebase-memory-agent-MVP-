@@ -1,0 +1,214 @@
+[
+  {
+    "id": "mem-c4a61193",
+    "title": "test-pr-001.diff",
+    "source": "UPLOAD",
+    "summary": "Memory-grounded review generated",
+    "tags": [
+      "complex"
+    ],
+    "content": "PR: test-pr-001.diff\nSource: UPLOAD\nComplexity: complex\nModel: llama-3.3-70b-versatile\nFiles reviewed: N/A\nFindings: 1 total (0 critical, 0 high, 1 medium, 0 low)\n\nIssues found:\n- [MEDIUM] Memory-grounded review generated in None",
+    "metadata": {
+      "pr_name": "test-pr-001.diff",
+      "source": "UPLOAD",
+      "complexity": "complex",
+      "model_used": "llama-3.3-70b-versatile",
+      "total_findings": 1,
+      "critical_count": 0,
+      "high_count": 0,
+      "medium_count": 1,
+      "low_count": 0,
+      "files": [],
+      "summary": "Memory-grounded review generated"
+    },
+    "created_at": "2026-06-28T10:43:56.220855+00:00",
+    "similarity": 1.0
+  },
+  {
+    "id": "mem-20a105c4",
+    "title": "test-pr-001.diff",
+    "source": "upload",
+    "summary": "```json\n{\n  \"summary_line\": \"Adds token refresh and user auth middleware\",\n  \"total_findings\": 7,\n  \"findings\": [\n    {\n      \"id\": 1,\n      \"severity\": \"critical\",\n      \"title\": \"Hardcoded secret key\",\n      \"file\": \"src/auth/session_manager.ts\",\n      \"line\": 5,\n      \"issue\": \"The secret key is hardcoded in the session manager. This is a security risk as it can be exposed to unauthorized parties. The secret key should be stored securely, such as in an environment variable.\",\n      \"fix\": \"Replace the hardcoded secret key with an environment variable, e.g. `const SECRET_KEY = process.env.SECRET_KEY;`\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    },\n    {\n      \"id\": 2,\n      \"severity\": \"high\",\n      \"title\": \"Insecure password hashing\",\n      \"file\": \"src/services/user_service.py\",\n      \"line\": 10,\n      \"issue\": \"The user service uses MD5 to hash passwords, which is an insecure algorithm. A more secure algorithm like bcrypt or Argon2 should be used instead.\",\n      \"fix\": \"Replace MD5 with a more secure password hashing algorithm, e.g. `import bcrypt; password_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt())`\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    },\n    {\n      \"id\": 3,\n      \"severity\": \"medium\",\n      \"title\": \"SQL injection vulnerability\",\n      \"file\": \"src/services/user_service.py\",\n      \"line\": 20,\n      \"issue\": \"The user service uses string formatting to construct SQL queries, which makes it vulnerable to SQL injection attacks. Parameterized queries should be used instead.\",\n      \"fix\": \"Replace string formatting with parameterized queries, e.g. `query = 'SELECT * FROM users WHERE email = %s'; result = self.db.execute(query, (email,))`\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    },\n    {\n      \"id\": 4,\n      \"severity\": \"medium\",\n      \"title\": \"Insecure token validation\",\n      \"file\": \"src/auth/session_manager.ts\",\n      \"line\": 40,\n      \"issue\": \"The session manager uses a simple token validation mechanism that can be bypassed by an attacker. A more secure token validation mechanism should be used instead.\",\n      \"fix\": \"Replace the simple token validation mechanism with a more secure one, e.g. using a library like jsonwebtoken\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    },\n    {\n      \"id\": 5,\n      \"severity\": \"low\",\n      \"title\": \"Missing error handling\",\n      \"file\": \"src/middleware/auth_guard.ts\",\n      \"line\": 20,\n      \"issue\": \"The auth guard middleware does not handle errors properly, which can lead to unexpected behavior. Error handling should be added to handle potential errors.\",\n      \"fix\": \"Add error handling to the auth guard middleware, e.g. using try-catch blocks\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    },\n    {\n      \"id\": 6,\n      \"severity\": \"low\",\n      \"title\": \"Insecure rate limiting\",\n      \"file\": \"src/middleware/auth_guard.ts\",\n      \"line\": 50,\n      \"issue\": \"The rate limiting mechanism uses a simple counter that can be bypassed by an attacker. A more secure rate limiting mechanism should be used instead.\",\n      \"fix\": \"Replace the simple rate limiting mechanism with a more secure one, e.g. using a library like express-rate-limit\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    },\n    {\n      \"id\": 7,\n      \"severity\": \"low\",\n      \"title\": \"Missing input validation\",\n      \"file\": \"src/api/routes/protected.py\",\n      \"line\": 20,\n      \"issue\": \"The protected routes do not validate user input properly, which can lead to security vulnerabilities. Input validation should be added to handle potential security risks.\",\n      \"fix\": \"Add input validation to the protected routes, e.g. using a library like pydantic\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    }\n  ],\n  \"model_used\": \"local-fallback\",\n  \"cost_usd\": 0.0\n}\n```",
+    "tags": [
+      "complex"
+    ],
+    "metadata": {
+      "repo": null,
+      "source": "upload",
+      "complexity": "complex",
+      "model_used": "llama-3.3-70b-versatile"
+    },
+    "created_at": "2026-06-28T09:44:54.680952+00:00",
+    "similarity": 1.0
+  },
+  {
+    "id": "mem-13d4e5df",
+    "title": "dashboard-count-test.diff",
+    "source": "upload",
+    "summary": "```json\n{\n  \"summary_line\": \"Updates code review process to use Groq or OpenAI providers\",\n  \"total_findings\": 5,\n  \"findings\": [\n    {\n      \"id\": 1,\n      \"severity\": \"critical\",\n      \"title\": \"Hardcoded API key\",\n      \"file\": \"app/core/config.py\",\n      \"line\": null,\n      \"issue\": \"The API key is hardcoded in the configuration file. This is a security risk as it can be exposed to unauthorized parties. The API key should be stored securely, such as in an environment variable.\",\n      \"fix\": \"Replace the hardcoded API key with an environment variable, e.g. `settings.groq_api_key = os.environ['GROQ_API_KEY']`\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    },\n    {\n      \"id\": 2,\n      \"severity\": \"high\",\n      \"title\": \"Insecure HTTP client\",\n      \"file\": \"app/services/http.py\",\n      \"line\": 10,\n      \"issue\": \"The HTTP client does not verify the SSL certificate of the server. This makes it vulnerable to man-in-the-middle attacks. The client should be configured to verify the SSL certificate.\",\n      \"fix\": \"Configure the HTTP client to verify the SSL certificate, e.g. `async with async_client(verify=True) as client:`\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    },\n    {\n      \"id\": 3,\n      \"severity\": \"medium\",\n      \"title\": \"Unconfigured provider\",\n      \"file\": \"app/services/http.py\",\n      \"line\": 10,\n      \"issue\": \"The code does not handle the case where the Groq or OpenAI provider is not configured. This could lead to errors when trying to use the provider.\",\n      \"fix\": \"Add a check to ensure the provider is configured before trying to use it. For example: `if settings.has_groq or settings.has_openai:`\",\n      \"memory_match\": \"Unconfigured provider\",\n      \"memory_pr\": \"groq-test.diff\"\n    },\n    {\n      \"id\": 4,\n      \"severity\": \"low\",\n      \"title\": \"Potential timeout issue\",\n      \"file\": \"app/services/http.py\",\n      \"line\": 20,\n      \"issue\": \"The code uses a timeout of 30 seconds when making requests to the Groq or OpenAI provider. This could potentially lead to timeouts if the provider takes longer to respond.\",\n      \"fix\": \"Consider increasing the timeout or adding retry logic to handle cases where the provider takes longer to respond.\",\n      \"memory_match\": \"Potential timeout issue\",\n      \"memory_pr\": \"groq-test.diff\"\n    },\n    {\n      \"id\": 5,\n      \"severity\": \"low\",\n      \"title\": \"Missing error handling\",\n      \"file\": \"app/services/http.py\",\n      \"line\": 20,\n      \"issue\": \"The code does not handle errors properly, which can lead to unexpected behavior. Error handling should be added to handle potential errors.\",\n      \"fix\": \"Add error handling to the code, e.g. using try-catch blocks\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    }\n  ],\n  \"model_used\": \"local-fallback\",\n  \"cost_usd\": 0.0\n}\n```",
+    "tags": [
+      "complex"
+    ],
+    "metadata": {
+      "repo": null,
+      "source": "upload",
+      "complexity": "complex",
+      "model_used": "llama-3.3-70b-versatile"
+    },
+    "created_at": "2026-06-28T00:28:22.064094+00:00",
+    "similarity": 1.0
+  },
+  {
+    "id": "mem-2ee16c29",
+    "title": "test-pr-001.diff",
+    "source": "upload",
+    "summary": "```json\n{\n  \"summary_line\": \"Adds token refresh and user auth middleware\",\n  \"total_findings\": 7,\n  \"findings\": [\n    {\n      \"id\": 1,\n      \"severity\": \"critical\",\n      \"title\": \"Hardcoded secret key\",\n      \"file\": \"src/auth/session_manager.ts\",\n      \"line\": 5,\n      \"issue\": \"The secret key is hardcoded in the session manager. This is a security risk as it can be exposed to unauthorized parties. The secret key should be stored securely, such as in an environment variable.\",\n      \"fix\": \"Replace the hardcoded secret key with an environment variable, e.g. `const SECRET_KEY = process.env.SECRET_KEY;`\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    },\n    {\n      \"id\": 2,\n      \"severity\": \"high\",\n      \"title\": \"Insecure password hashing\",\n      \"file\": \"src/services/user_service.py\",\n      \"line\": 10,\n      \"issue\": \"The user service uses MD5 to hash passwords, which is an insecure algorithm. A more secure algorithm like bcrypt or Argon2 should be used instead.\",\n      \"fix\": \"Replace MD5 with a more secure password hashing algorithm, e.g. `import bcrypt; password_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt())`\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    },\n    {\n      \"id\": 3,\n      \"severity\": \"medium\",\n      \"title\": \"SQL injection vulnerability\",\n      \"file\": \"src/services/user_service.py\",\n      \"line\": 20,\n      \"issue\": \"The user service uses string formatting to construct SQL queries, which makes it vulnerable to SQL injection attacks. Parameterized queries should be used instead.\",\n      \"fix\": \"Replace string formatting with parameterized queries, e.g. `query = 'SELECT * FROM users WHERE email = %s'; result = self.db.execute(query, (email,))`\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    },\n    {\n      \"id\": 4,\n      \"severity\": \"medium\",\n      \"title\": \"Insecure token validation\",\n      \"file\": \"src/auth/session_manager.ts\",\n      \"line\": 40,\n      \"issue\": \"The session manager uses a simple token validation mechanism that can be bypassed by an attacker. A more secure token validation mechanism should be used instead.\",\n      \"fix\": \"Replace the simple token validation mechanism with a more secure one, e.g. using a library like jsonwebtoken\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    },\n    {\n      \"id\": 5,\n      \"severity\": \"low\",\n      \"title\": \"Missing error handling\",\n      \"file\": \"src/middleware/auth_guard.ts\",\n      \"line\": 20,\n      \"issue\": \"The auth guard middleware does not handle errors properly, which can lead to unexpected behavior. Error handling should be added to handle potential errors.\",\n      \"fix\": \"Add error handling to the auth guard middleware, e.g. using try-catch blocks\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    },\n    {\n      \"id\": 6,\n      \"severity\": \"low\",\n      \"title\": \"Insecure rate limiting\",\n      \"file\": \"src/middleware/auth_guard.ts\",\n      \"line\": 50,\n      \"issue\": \"The rate limiting mechanism uses a simple counter that can be bypassed by an attacker. A more secure rate limiting mechanism should be used instead.\",\n      \"fix\": \"Replace the simple rate limiting mechanism with a more secure one, e.g. using a library like express-rate-limit\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    },\n    {\n      \"id\": 7,\n      \"severity\": \"low\",\n      \"title\": \"Missing input validation\",\n      \"file\": \"src/api/routes/protected.py\",\n      \"line\": 20,\n      \"issue\": \"The protected routes do not validate user input properly, which can lead to security vulnerabilities. Input validation should be added to handle potential security risks.\",\n      \"fix\": \"Add input validation to the protected routes, e.g. using a library like pydantic\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    }\n  ],\n  \"model_used\": \"local-fallback\",\n  \"cost_usd\": 0.0\n}\n```",
+    "tags": [
+      "complex"
+    ],
+    "metadata": {
+      "repo": null,
+      "source": "upload",
+      "complexity": "complex",
+      "model_used": "llama-3.3-70b-versatile"
+    },
+    "created_at": "2026-06-28T00:22:32.128866+00:00",
+    "similarity": 1.0
+  },
+  {
+    "id": "mem-73da3599",
+    "title": "groq-test.diff",
+    "source": "upload",
+    "summary": "```\n{\n  \"summary_line\": \"This PR updates the code review process to use Groq or OpenAI providers\",\n  \"total_findings\": 2,\n  \"findings\": [\n    {\n      \"id\": 1,\n      \"severity\": \"medium\",\n      \"title\": \"Unconfigured provider\",\n      \"file\": \"app/services/http.py\",\n      \"line\": 10,\n      \"issue\": \"The code does not handle the case where the Groq or OpenAI provider is not configured. This could lead to errors when trying to use the provider.\",\n      \"fix\": \"Add a check to ensure the provider is configured before trying to use it. For example: `if settings.has_groq or settings.has_openai:`\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    },\n    {\n      \"id\": 2,\n      \"severity\": \"low\",\n      \"title\": \"Potential timeout issue\",\n      \"file\": \"app/services/http.py\",\n      \"line\": 20,\n      \"issue\": \"The code uses a timeout of 30 seconds when making requests to the Groq or OpenAI provider. This could potentially lead to timeouts if the provider takes longer to respond.\",\n      \"fix\": \"Consider increasing the timeout or adding retry logic to handle cases where the provider takes longer to respond.\",\n      \"memory_match\": null,\n      \"memory_pr\": null\n    }\n  ],\n  \"model_used\": \"local-fallback\",\n  \"cost_usd\": 0.0\n}\n```",
+    "tags": [
+      "complex"
+    ],
+    "metadata": {
+      "repo": null,
+      "source": "upload",
+      "complexity": "complex",
+      "model_used": "llama-3.3-70b-versatile"
+    },
+    "created_at": "2026-06-28T00:20:32.320902+00:00",
+    "similarity": 1.0
+  },
+  {
+    "id": "mem-f5a770d8",
+    "title": "groq-test.diff",
+    "source": "upload",
+    "summary": "CMA analyzed the diff locally. Configure a reachable Groq or OpenAI provider to enable live model review.",
+    "tags": [
+      "complex"
+    ],
+    "metadata": {
+      "repo": null,
+      "source": "upload",
+      "complexity": "complex",
+      "model_used": "local-fallback"
+    },
+    "created_at": "2026-06-28T00:15:28.393786+00:00",
+    "similarity": 1.0
+  },
+  {
+    "id": "mem-0c855504",
+    "title": "test-pr-001.diff",
+    "source": "upload",
+    "summary": "CMA analyzed the diff locally. Configure a reachable Groq or OpenAI provider to enable live model review.",
+    "tags": [
+      "complex"
+    ],
+    "metadata": {
+      "repo": null,
+      "source": "upload",
+      "complexity": "complex",
+      "model_used": "local-fallback"
+    },
+    "created_at": "2026-06-28T00:13:50.102120+00:00",
+    "similarity": 1.0
+  },
+  {
+    "id": "mem-290ddd3a",
+    "title": "Manual diff review - test-pr-001.diff",
+    "source": "upload",
+    "summary": "CMA analyzed the diff locally. Configure a reachable Groq or OpenAI provider to enable live model review.",
+    "tags": [
+      "complex"
+    ],
+    "metadata": {
+      "repo": null,
+      "source": "upload",
+      "complexity": "complex",
+      "model_used": "local-fallback"
+    },
+    "created_at": "2026-06-28T00:06:17.537995+00:00",
+    "similarity": 1.0
+  },
+  {
+    "id": "mem-75a5a3a3",
+    "title": "Manual diff review - test-pr-001.diff",
+    "source": "upload",
+    "summary": "CMA analyzed the diff locally. Configure a reachable Groq or OpenAI provider to enable live model review.",
+    "tags": [
+      "complex"
+    ],
+    "metadata": {
+      "repo": null,
+      "source": "upload",
+      "complexity": "complex",
+      "model_used": "local-fallback"
+    },
+    "created_at": "2026-06-27T23:43:29.420118+00:00",
+    "similarity": 1.0
+  },
+  {
+    "id": "mem-a5b40531",
+    "title": "Manual diff review - test-pr-001.diff",
+    "source": "upload",
+    "summary": "CMA analyzed the diff locally. Configure a reachable Groq or OpenAI provider to enable live model review.",
+    "tags": [
+      "complex"
+    ],
+    "metadata": {
+      "repo": null,
+      "source": "upload",
+      "complexity": "complex",
+      "model_used": "local-fallback"
+    },
+    "created_at": "2026-06-27T23:26:39.662299+00:00",
+    "similarity": 1.0
+  },
+  {
+    "id": "mem-bd2d6877",
+    "title": "Manual diff review - test-pr-001.diff",
+    "source": "upload",
+    "summary": "CMA analyzed the diff locally. Configure a reachable Groq or OpenAI provider to enable live model review.",
+    "tags": [
+      "complex"
+    ],
+    "metadata": {
+      "repo": null,
+      "source": "upload",
+      "complexity": "complex",
+      "model_used": "local-fallback"
+    },
+    "created_at": "2026-06-27T23:19:41.749149+00:00",
+    "similarity": 1.0
+  },
+  {
+    "id": "mem-2a647229",
+    "title": "Memory smoke review",
+    "source": "upload",
+    "summary": "CMA analyzed the diff locally. Configure a reachable Groq or OpenAI provider to enable live model review.",
+    "tags": [
+      "simple"
+    ],
+    "metadata": {
+      "repo": null,
+      "source": "upload",
+      "complexity": "simple",
+      "model_used": "local-fallback"
+    },
+    "created_at": "2026-06-27T23:04:48.355397+00:00",
+    "similarity": 1.0
+  }
+]

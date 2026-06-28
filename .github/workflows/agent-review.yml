@@ -1,0 +1,17 @@
+name: Codebase Memory Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  memory-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Agent Review
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" \
+            -X POST "${{ secrets.AGENT_API_URL }}/reviews/trigger" \
+            -H "Authorization: Bearer ${{ secrets.AGENT_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{"repo":"${{ github.repository }}","pr_number":${{ github.event.number }}}'
